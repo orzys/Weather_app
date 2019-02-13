@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Interpolacja temperatury</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Podaj miejscowość:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Dzień do sprawdzenia:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="le_miasto">
+        <property name="text">
+         <string>Elbląg,pl</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDateEdit" name="de_data"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QRadioButton" name="rb_dzis">
+          <property name="text">
+           <string>dziś</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rb_jutro">
+          <property name="text">
+           <string>jutro</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rb_pojutrze">
+          <property name="text">
+           <string>pojutrze</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="btn_sprawdz">
+          <property name="text">
+           <string>Sprawdź</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>de_data</sender>
+   <signal>dateChanged(QDate)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>de_zmianaDaty(QDate)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>131</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>132</x>
+     <y>19</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>le_miasto</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>le_zmianaMiasta(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>256</x>
+     <y>22</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>266</x>
+     <y>15</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rb_dzis</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rb_zmianaPrognozyNa()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>98</x>
+     <y>127</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>182</x>
+     <y>141</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rb_jutro</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rb_zmianaPrognozyNa()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>129</x>
+     <y>104</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>208</x>
+     <y>141</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rb_pojutrze</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rb_zmianaPrognozyNa()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>129</x>
+     <y>81</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>243</x>
+     <y>141</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_sprawdz</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_sprawdzKlik()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>97</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>232</x>
+     <y>109</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>le_zmianaMiasta(QString)</slot>
+  <slot>de_zmianaDaty(QDate)</slot>
+  <slot>btn_sprawdzKlik()</slot>
+  <slot>rb_zmianaPrognozyNa()</slot>
+ </slots>
+</ui>
